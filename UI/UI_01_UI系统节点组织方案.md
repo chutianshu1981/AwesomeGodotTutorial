@@ -22,7 +22,7 @@
    
    将复杂的 UI 组件拆分为多个独立的场景，使用实例化的方式在主场景中组合。这有助于管理和复用 UI 组件。
 
-## 2. 示例项目结构
+## 2. UI场景示例项目结构
 
 MainUI (Control)
 ├── CanvasLayer (CanvasLayer)
@@ -44,3 +44,11 @@ MainUI (Control)
 │       │   ├── SettingsButton (Button)
 │       │   ├── MainMenuButton (Button)
 │       └── ConfirmDialog (AcceptDialog)
+
+## 3. 3D场景通用节点树结构
+
+下面的方案是较为简单的3D场景，通用的节点数设置方案
+
+## 4. 2D场景通用节点树结构
+
+下面的方案是较为简单的2D场景，通用的节点数设置方案

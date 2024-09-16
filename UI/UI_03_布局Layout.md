@@ -2,7 +2,7 @@
 
 在 Godot 4 中，`Layout Mode` 主动模式，主要分为两种：`Anchors` 和 `Position`。
 
-但如果你把控件放入 **容器** **container** 类型父节点中，`Layout Mode` 就会变成 `Container` 且不允许改动，包括其他如 `Transform` 等定位用属性。
+但如果你把控件放入 **容器** **container** 类型父节点中，`Layout Mode` 就会变成 `Container` 且不允许改动，包括其他如 `Transform` 等定位用属性；子节点**完全依靠父节点的配置来布局**。
 
 这 **三种模式** 决定了 UI 控件如何在父节点中进行定位和调整大小。让我们详细探讨这三种布局模式及其区别。
 
@@ -12,7 +12,9 @@
 >
 > godot 4 中的所有定位模式，都是相对于父节点的左上角顶点（默认的父节点 Pivot 位置）
 
-## 1. Anchors 模式
+## 1. Anchors 模式（自适应）
+
+`Anchors` 是 GUI 中处理基于多分辨率时应对不同纵横比的有效方法。
 
 `Anchors` 模式使用锚点（anchors）和 变形（Transform）来定位和调整控件的大小。
 
@@ -42,7 +44,7 @@ add_child(label)
 ```
 在这个示例中，`Label` 控件会根据其父控件的中心点进行定位，并通过边距设置其大小和位置。
 
-## 2. Position 模式
+## 2. Position 模式（固定）
 
 `Position` 模式使用控件的 `Rect` 属性来直接设置位置和大小。这种模式下，控件的位置和大小是固定的，不会随父控件的变化而调整。
 
@@ -61,7 +63,7 @@ add_child(label)
 
 在 Godot 4 中，如果将控件放入 `Container` 容器控件中，确实会自动改为 `Container` 布局模式，并且不能更改。这是因为 `Container` 控件负责管理其子控件的布局，并自动调整子控件的位置和大小，以适应其内部的布局规则。
 
-## 3. Container 模式 
+## 3. Container 模式（父节点控制）
 
 ### 3.1 Container 容器控件
 
